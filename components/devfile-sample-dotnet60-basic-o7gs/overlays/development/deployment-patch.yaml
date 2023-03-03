@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: devfile-sample-dotnet60-basic-o7gs
+  namespace: e2e-demos-wqfd-tenant
+spec:
+  replicas: 1
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio-qe/test-images-protected@sha256:2d205f4ab35cef814692dc3ba3996a6618d9519da45b1b0a4cc611a72ef73ace
+        name: main
+        resources: {}
+status: {}
