@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-sample-dotnet60-basic-o7gs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-sample-dotnet60-basic-o7gs
+    app.kubernetes.io/part-of: e2e-dotnet
+  name: devfile-sample-dotnet60-basic-o7gs
+  namespace: e2e-demos-wqfd-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devfile-dotnet-deploy
+      app.kubernetes.io/instance: devfile-sample-dotnet60-basic-o7gs
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: devfile-dotnet-deploy
+        app.kubernetes.io/instance: devfile-sample-dotnet60-basic-o7gs
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio-qe/test-images-protected:xhrX8-devfile-sample-dotnet60-basic-o7gs
+        imagePullPolicy: Always
+        name: main
+        ports:
+        - containerPort: 8081
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 300Mi
+          requests:
+            cpu: 10m
+            memory: 100Mi
+status: {}
